@@ -1,0 +1,24 @@
+.idea
+__pycache__
+
+target/
+
+// Ignore the downloaded/derived data
+evaluation/datasets/**/*.pdf
+evaluation/datasets/**/*.jpeg
+evaluation/datasets/**/*.jpg
+evaluation/datasets/**/*.pgm
+
+*.pkl
+
+# Python GUI and Build Assets
+pdffigures2.jar
+*.pdf
+extracted/
+.vscode/
+.continue/
+.antigravity/
+.antigravitycli/
+.gemini/
+*.zip
+*.log
