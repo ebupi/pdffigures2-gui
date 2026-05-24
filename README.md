@@ -67,6 +67,14 @@ conda run -n pdffigures2-env sbt assembly
   pdffigures2 -m /output/path/fig_prefix -d /output/path/ /path/to/paper.pdf
   ```
 
+### 4. Windows Standalone Executable (No Python Required)
+You can easily bundle the GUI into a standalone Windows `.exe` application so that Windows users can run it without needing to install Python, Conda, or PySide6 (Java is still required to run the JAR in the background).
+
+1. Copy the project folder to a Windows machine.
+2. Double-click the `build_windows.bat` file located in the root directory.
+3. The script will automatically install dependencies and use **PyInstaller** to compile the application and bundle the required `.jar` and `.png` assets.
+4. The final standalone application will be generated in `dist/PDFFigures2/PDFFigures2.exe`.
+
 ---
 
 ## 📑 Citation & Original Work

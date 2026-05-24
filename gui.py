@@ -4,6 +4,15 @@ import json
 import subprocess
 from PySide6 import QtCore, QtGui, QtWidgets
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base_path, relative_path)
+
 # Premium Ubuntu Yaru-Dark Inspired QSS Stylesheet
 UBUNTU_YARU_DARK_QSS = """
 QMainWindow {
@@ -819,12 +828,12 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
         QtGui.QGuiApplication.styleHints().colorSchemeChanged.connect(self.apply_color_scheme)
 
         # Set Window Icon
-        icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon_v3.png")
+        icon_path = resource_path("icon_v3.png")
         if os.path.exists(icon_path):
             self.setWindowIcon(QtGui.QIcon(icon_path))
 
         # Default path setup
-        self.jar_path = "/home/ebupi/pdffigures2/pdffigures2.jar"
+        self.jar_path = resource_path("pdffigures2.jar")
         self.extracted_figures = []
         self.json_base_dir = ""
         self.worker = None
@@ -1460,7 +1469,7 @@ if __name__ == "__main__":
     app.setDesktopFileName("PDFFigures2")
     
     # Set App-wide Icon
-    icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon_v3.png")
+    icon_path = resource_path("icon_v3.png")
     if os.path.exists(icon_path):
         app.setWindowIcon(QtGui.QIcon(icon_path))
     
