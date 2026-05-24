@@ -22,3 +22,7 @@ extracted/
 .gemini/
 *.zip
 *.log
+
+# Test and extraction outputs
+test_output/
+extracted_figures/

@@ -5,7 +5,7 @@ import subprocess
 from PySide6 import QtCore, QtGui, QtWidgets
 
 # Premium Ubuntu Yaru-Dark Inspired QSS Stylesheet
-UBUNTU_YARU_QSS = """
+UBUNTU_YARU_DARK_QSS = """
 QMainWindow {
     background-color: #1E1E1E;
     color: #E3E3E3;
@@ -225,6 +225,319 @@ QLabel#CardCaption {
     font-size: 11px;
     color: #AEAEAE;
 }
+
+/* Custom Image Containers */
+QLabel#ThumbnailLabel {
+    background-color: #FFFFFF; /* White canvas so black-text transparent graphics are visible! */
+    border: 1px solid #2D2D2D;
+    border-radius: 4px;
+}
+QFrame#ImageContainer {
+    background-color: #FFFFFF; /* White background for full zoom so details are perfectly visible */
+    border: 1px solid #2D2D2D;
+    border-radius: 8px;
+}
+
+/* Dynamic Help text support */
+QLabel#HelpTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #E95420;
+}
+QLabel#HelpText {
+    font-size: 13px;
+    color: #E3E3E3;
+}
+QLabel#CapHeader {
+    font-weight: bold;
+    color: #FFFFFF;
+}
+QLabel#PageLabel {
+    color: #E95420;
+    font-size: 13px;
+}
+QLabel#StatusText {
+    color: #8C8C8C;
+    font-size: 12px;
+}
+QLabel#GalleryCount {
+    color: #8C8C8C;
+    font-size: 13px;
+    font-weight: bold;
+}
+QLabel#EmptyLabel {
+    color: #8C8C8C;
+    font-style: italic;
+    font-size: 13px;
+}
+"""
+
+# Premium Ubuntu Yaru-Light Inspired QSS Stylesheet
+UBUNTU_YARU_LIGHT_QSS = """
+QMainWindow {
+    background-color: #F6F6F6;
+    color: #2D2D2D;
+    font-family: 'Ubuntu', 'Inter', 'Segoe UI', sans-serif;
+}
+
+QFrame#SidebarFrame {
+    background-color: #EAEAEA;
+    border-right: 1px solid #D5D5D5;
+}
+
+QLabel#LogoLabel {
+    color: #E95420; /* Ubuntu Orange */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+QLabel#SubtitleLabel {
+    color: #6D6D6D;
+    font-size: 11px;
+}
+
+/* Navigation Buttons */
+QPushButton#SidebarButton {
+    background-color: transparent;
+    color: #5D5D5D;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 13px;
+}
+QPushButton#SidebarButton:hover {
+    background-color: #DCDCDC;
+    color: #1E1E1E;
+}
+QPushButton#SidebarButton:checked {
+    background-color: #E95420;
+    color: #FFFFFF;
+}
+
+/* Headers */
+QLabel#SectionTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1E1E1E;
+}
+
+/* Card layout container */
+QFrame#DashboardPanel {
+    background-color: transparent;
+}
+
+/* Settings Group Panel */
+QFrame#SettingsPanel {
+    background-color: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+}
+
+/* Input Fields */
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #1E1E1E;
+    font-size: 13px;
+}
+QLineEdit:focus {
+    border: 1px solid #E95420;
+}
+QLineEdit:disabled {
+    background-color: #F0F0F0;
+    color: #888888;
+    border: 1px solid #E0E0E0;
+}
+
+/* Primary Accent Button */
+QPushButton#ActionButton {
+    background-color: #E95420;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 13px;
+}
+QPushButton#ActionButton:hover {
+    background-color: #FC6F38;
+}
+QPushButton#ActionButton:pressed {
+    background-color: #C74213;
+}
+QPushButton#ActionButton:disabled {
+    background-color: #D5D5D5;
+    color: #888888;
+}
+
+/* Secondary Button */
+QPushButton#SecondaryButton {
+    background-color: #E6E6E6;
+    color: #2D2D2D;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-size: 13px;
+}
+QPushButton#SecondaryButton:hover {
+    background-color: #DCDCDC;
+    color: #1E1E1E;
+    border: 1px solid #B0B0B0;
+}
+QPushButton#SecondaryButton:pressed {
+    background-color: #CCCCCC;
+}
+
+/* Dropdown Menu */
+QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: #1E1E1E;
+    min-width: 70px;
+}
+QComboBox:focus {
+    border: 1px solid #E95420;
+}
+QComboBox::drop-down {
+    border: none;
+}
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    selection-background-color: #E95420;
+    selection-color: #FFFFFF;
+    color: #1E1E1E;
+}
+
+/* Checkbox Switches */
+QCheckBox {
+    color: #2D2D2D;
+    font-size: 12px;
+    spacing: 8px;
+}
+
+/* Flat Sleek Progress Bar */
+QProgressBar {
+    border: 1px solid #D5D5D5;
+    border-radius: 4px;
+    background-color: #EAEAEA;
+    text-align: center;
+    color: transparent;
+    height: 6px;
+}
+QProgressBar::chunk {
+    background-color: #E95420;
+    border-radius: 3px;
+}
+
+/* Text Terminal Console Log */
+QTextEdit#ConsoleLog {
+    background-color: #FAFAFA;
+    border: 1px solid #D5D5D5;
+    border-radius: 6px;
+    font-family: 'Ubuntu Mono', 'Courier New', monospace;
+    font-size: 13px;
+    color: #1E1E1E;
+    padding: 10px;
+}
+
+/* Scroll Area styling */
+QScrollArea {
+    border: none;
+    background-color: transparent;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background-color: #F6F6F6;
+    width: 8px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background-color: #C5C5C5;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background-color: #E95420;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: none;
+    background: none;
+}
+
+/* Figure Card styling */
+QFrame#FigureCard {
+    background-color: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+}
+QFrame#FigureCard:hover {
+    border: 1px solid #E95420;
+    background-color: #F9F9F9;
+}
+
+QLabel#CardTitle {
+    font-weight: bold;
+    font-size: 13px;
+    color: #1E1E1E;
+}
+
+QLabel#CardCaption {
+    font-size: 11px;
+    color: #6D6D6D;
+}
+
+/* Custom Image Containers */
+QLabel#ThumbnailLabel {
+    background-color: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    border-radius: 4px;
+}
+QFrame#ImageContainer {
+    background-color: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+}
+
+/* Dynamic Help text support */
+QLabel#HelpTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #E95420;
+}
+QLabel#HelpText {
+    font-size: 13px;
+    color: #333333;
+}
+QLabel#CapHeader {
+    font-weight: bold;
+    color: #1E1E1E;
+}
+QLabel#PageLabel {
+    color: #E95420;
+    font-size: 13px;
+}
+QLabel#StatusText {
+    color: #6D6D6D;
+    font-size: 12px;
+}
+QLabel#GalleryCount {
+    color: #6D6D6D;
+    font-size: 13px;
+    font-weight: bold;
+}
+QLabel#EmptyLabel {
+    color: #6D6D6D;
+    font-style: italic;
+    font-size: 13px;
+}
 """
 
 class FigureExtractionWorker(QtCore.QThread):
@@ -290,9 +603,9 @@ class FigureCard(QtWidgets.QFrame):
 
         # Thumbnail Label
         self.img_label = QtWidgets.QLabel()
+        self.img_label.setObjectName("ThumbnailLabel")
         self.img_label.setAlignment(QtCore.Qt.AlignCenter)
         self.img_label.setFixedHeight(120)
-        self.img_label.setStyleSheet("background-color: #181818; border-radius: 4px;")
 
         if img_path and os.path.exists(img_path):
             pixmap = QtGui.QPixmap(img_path)
@@ -340,7 +653,8 @@ class ZoomDialog(QtWidgets.QDialog):
         super().__init__(parent)
         self.setWindowTitle(f"Preview - {fig.get('figType', 'Figure')} {fig.get('name', '')}")
         self.resize(900, 650)
-        self.setStyleSheet(UBUNTU_YARU_QSS)
+        self.apply_color_scheme()
+        QtGui.QGuiApplication.styleHints().colorSchemeChanged.connect(self.apply_color_scheme)
 
         # Main horizontal layout
         main_layout = QtWidgets.QHBoxLayout(self)
@@ -349,8 +663,7 @@ class ZoomDialog(QtWidgets.QDialog):
 
         # Left panel: Image container
         img_container = QtWidgets.QFrame()
-        img_container.setObjectName("SettingsPanel")
-        img_container.setStyleSheet("background-color: #101010;")
+        img_container.setObjectName("ImageContainer")
         img_layout = QtWidgets.QVBoxLayout(img_container)
         img_layout.setContentsMargins(10, 10, 10, 10)
 
@@ -398,13 +711,13 @@ class ZoomDialog(QtWidgets.QDialog):
         info_layout.addWidget(title_lbl)
 
         page_lbl = QtWidgets.QLabel(f"Document Page Location: <b>{fig_page}</b>")
-        page_lbl.setStyleSheet("color: #E95420; font-size: 13px;")
+        page_lbl.setObjectName("PageLabel")
         info_layout.addWidget(page_lbl)
 
         info_layout.addSpacing(10)
 
         cap_header = QtWidgets.QLabel("Full Extracted Caption Text:")
-        cap_header.setStyleSheet("font-weight: bold; color: #FFFFFF;")
+        cap_header.setObjectName("CapHeader")
         info_layout.addWidget(cap_header)
 
         # Scrollable caption text area
@@ -422,14 +735,93 @@ class ZoomDialog(QtWidgets.QDialog):
 
         main_layout.addWidget(info_panel, stretch=2)
 
+    def apply_color_scheme(self):
+        scheme = QtGui.QGuiApplication.styleHints().colorScheme()
+        if scheme == QtCore.Qt.ColorScheme.Dark:
+            self.setStyleSheet(UBUNTU_YARU_DARK_QSS)
+        else:
+            self.setStyleSheet(UBUNTU_YARU_LIGHT_QSS)
+
 
 class PDFFiguresGUI(QtWidgets.QMainWindow):
+    HELP_TEXT_TR = {
+        "usage": (
+            "1. <b>Giriş Seçimi:</b> 'Browse File' butonunu kullanarak tek bir PDF belgesi veya "
+            "'Browse Folder' butonuyla birden fazla PDF içeren klasörü seçin.<br>"
+            "2. <b>Çıkış Seçimi:</b> Çıkarılacak görsellerin ve verilerin kaydedileceği klasörü belirtin.<br>"
+            "3. <b>Çıkarma Seçenekleri:</b><br>"
+            "   • <i>Save Figure PNGs:</i> Görselleri resim olarak kaydeder.<br>"
+            "   • <i>Save JSON Metadata:</i> Her bir görselin sayfa, altyazı (caption) ve koordinat bilgilerini içeren JSON dosyası üretir.<br>"
+            "   • <i>Render Visualizations:</i> Makale sayfalarında tespit edilen bölgeleri renklendirip görselleştirme çıktıları oluşturur.<br>"
+            "   • <i>Image DPI:</i> Görsellerin çözünürlüğünü ayarlar (akademik çıktılar için 150 veya 300 DPI önerilir).<br>"
+            "4. <b>Başlatma:</b> 'START EXTRACTION' butonuna basarak işlemi başlatın. Log penceresinden süreci canlı izleyebilirsiniz.<br>"
+            "5. <b>Galeri Görünümü:</b> İşlem bittiğinde görseller otomatik olarak 'Figure Gallery' sekmesine yüklenecektir. "
+            "Görsellere tıklayarak açıklamalarını ve büyük hallerini inceleyebilirsiniz."
+        ),
+        "trouble": (
+            "PDFFigures 2.0 motoru gelişmiş bilgisayarlı görü algoritmaları kullanır, ancak bazı PDF türlerinde grafiklerin sınırlarını tespit etmekte zorlanabilir. Bu durumda aşağıdaki yöntemleri uygulayabilirsiniz:<br><br>"
+            "<b>1. Tarama (Scanned / Görüntü Tabanlı) PDF Belgeleri:</b><br>"
+            "Eğer PDF dosyası tarayıcıdan geçirilmiş resimlerden oluşuyorsa ve metinler seçilemiyorsa, motor altyazıları veya grafikleri bulamaz. "
+            "<i>Çözüm:</i> PDF belgesini <b>OCRmyPDF</b> veya benzeri bir OCR aracından geçirerek aranabilir metin katmanı ekledikten sonra tekrar deneyin.<br><br>"
+            "<b>2. Eksik Grafik Dekoderleri (JPEG2000 / JBIG2 Formatları):</b><br>"
+            "Makaledeki görseller JPEG2000 (.jp2) veya JBIG2 formatlarında sıkıştırılmış olabilir. Bu durumda Java motoru (PDFBox) lisans kısıtlamaları nedeniyle görselleri okuyamaz ve atlar. "
+            "<i>Çözüm:</i> Projenin <code>build.sbt</code> dosyasında yer alan <code>jai-imageio-core</code>, <code>jai-imageio-jpeg2000</code> ve <code>levigo-jbig2-imageio</code> bağımlılıklarının önündeki yorum (//) işaretlerini kaldırıp motoru <code>sbt assembly</code> komutu ile tekrar derleyin.<br><br>"
+            "<b>3. Bölgesiz Altyazılar (Regionless Captions - Seçeneği -c):</b><br>"
+            "Motor bazen altyazıyı (örneğin 'Figure 1:') bulur fakat görselin sınırlarını (bounding box) ayırt edemediği için o figürü tamamen yok sayar. "
+            "<i>Çözüm:</i> Kontrol panelinden <b>'Save Regionless Captions (-c)'</b> seçeneğini işaretleyin. Bu sayede görsel çıkarılamasa dahi altyazı ve sayfa bilgileri JSON dosyasına yazılır ve galeriye eklenir.<br><br>"
+            "<b>4. Hataları Yok Sayma (Ignore Page Errors - Seçeneği -e):</b><br>"
+            "İşlem sırasında bozuk sayfa yapıları nedeniyle motor hata verip durabilir. "
+            "<i>Çözüm:</i> <b>'Ignore Page Errors (-e)'</b> seçeneğini işaretleyerek hatalı sayfaların atlanmasını ve kalan sayfaların işlenmeye devam edilmesini sağlayabilirsiniz.<br><br>"
+            "<b>5. DPI Çözünürlüğünü Yükseltme:</b><br>"
+            "Karmaşık veya küçük figürlerin tespiti için DPI değerini 200 veya 300'e çıkararak görsel sınırlarının netleşmesini sağlayın."
+        )
+    }
+
+    HELP_TEXT_EN = {
+        "usage": (
+            "1. <b>Input Selection:</b> Click 'Browse File' to select a single PDF, or 'Browse Folder' to select a directory containing multiple PDFs.<br>"
+            "2. <b>Output Directory:</b> Choose the directory where the extracted figures and metadata should be saved.<br>"
+            "3. <b>Extraction Options:</b><br>"
+            "   • <i>Save Figure PNGs:</i> Renders and saves figures as individual images.<br>"
+            "   • <i>Save JSON Metadata:</i> Generates a JSON file containing metadata (page, caption, and coordinates) for each figure.<br>"
+            "   • <i>Render Visualizations:</i> Creates visualizations highlight-marking the detected regions on document pages.<br>"
+            "   • <i>Image DPI:</i> Controls resolution of saved figures (150 or 300 DPI is recommended for publication-quality output).<br>"
+            "4. <b>Execution:</b> Click 'START EXTRACTION'. You can monitor the real-time execution in the log console.<br>"
+            "5. <b>Gallery View:</b> Once processing is completed, extracted figures are automatically loaded into the 'Figure Gallery' tab. Click on any figure to zoom in and view its full caption."
+        ),
+        "trouble": (
+            "PDFFigures 2.0 uses computer vision algorithms, but it may fail to resolve graphics in certain PDF types. Try the following solutions:<br><br>"
+            "<b>1. Scanned (Image-only) PDF Documents:</b><br>"
+            "If the PDF consists of scanned pages without digital text, the engine cannot read captions or identify visual coordinates. "
+            "<i>Solution:</i> Use an OCR tool (like <b>OCRmyPDF</b> or <b>Tesseract</b>) to add a searchable text layer to the PDF before processing.<br><br>"
+            "<b>2. Missing Image Decoders (JPEG2000 / JBIG2 Formats):</b><br>"
+            "Figures in some papers use JPEG2000 (.jp2) or JBIG2 compression. The default Java PDFBox engine cannot decode them due to license exclusions. "
+            "<i>Solution:</i> Uncomment the <code>jai-imageio-core</code>, <code>jai-imageio-jpeg2000</code>, and <code>levigo-jbig2-imageio</code> dependencies in <code>build.sbt</code> and rebuild the project using <code>sbt assembly</code>.<br><br>"
+            "<b>3. Regionless Captions (-c flag):</b><br>"
+            "Sometimes the engine identifies a caption (e.g. 'Figure 1:') but cannot determine the exact graphic boundary, discarding the figure. "
+            "<i>Solution:</i> Enable <b>'Save Regionless Captions (-c)'</b> to preserve the captions and page indices in the JSON file and load them into the gallery.<br><br>"
+            "<b>4. Ignore Page Errors (-e flag):</b><br>"
+            "Corrupted page structures can halt the batch execution. "
+            "<i>Solution:</i> Check <b>'Ignore Page Errors (-e)'</b> to skip corrupted pages and continue extracting the rest of the document.<br><br>"
+            "<b>5. Image DPI Resolution:</b><br>"
+            "Increase the DPI to 200 or 300 to improve detail recognition and shape clustering for complex figures."
+        )
+    }
+
     def __init__(self):
         super().__init__()
         self.setWindowTitle("PDFFigures 2.0 - Scientific Figure Extractor")
         self.resize(1150, 750)
         self.setMinimumSize(1000, 650)
-        self.setStyleSheet(UBUNTU_YARU_QSS)
+
+        # Listen to system color scheme changes (Light/Dark mode)
+        self.apply_color_scheme()
+        QtGui.QGuiApplication.styleHints().colorSchemeChanged.connect(self.apply_color_scheme)
+
+        # Set Window Icon
+        icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon_v3.png")
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QtGui.QIcon(icon_path))
 
         # Default path setup
         self.jar_path = "/home/ebupi/pdffigures2/pdffigures2.jar"
@@ -439,6 +831,13 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
 
         # Build UI layout structure
         self.setup_ui()
+
+    def apply_color_scheme(self):
+        scheme = QtGui.QGuiApplication.styleHints().colorScheme()
+        if scheme == QtCore.Qt.ColorScheme.Dark:
+            self.setStyleSheet(UBUNTU_YARU_DARK_QSS)
+        else:
+            self.setStyleSheet(UBUNTU_YARU_LIGHT_QSS)
 
     def setup_ui(self):
         # Main central widget
@@ -487,6 +886,13 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
         self.btn_gallery.clicked.connect(self.show_gallery_view)
         sidebar_layout.addWidget(self.btn_gallery)
         self.btn_group.addButton(self.btn_gallery)
+        self.btn_help = QtWidgets.QPushButton("  User Guide")
+        self.btn_help.setObjectName("SidebarButton")
+        self.btn_help.setCheckable(True)
+        self.btn_help.setIcon(QtGui.QIcon.fromTheme("help-browser"))
+        self.btn_help.clicked.connect(self.show_help_view)
+        sidebar_layout.addWidget(self.btn_help)
+        self.btn_group.addButton(self.btn_help)
 
         sidebar_layout.addStretch()
 
@@ -501,7 +907,7 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
         status_layout.addWidget(self.status_led)
 
         self.status_text = QtWidgets.QLabel("Engine Connected")
-        self.status_text.setStyleSheet("color: #8C8C8C; font-size: 12px;")
+        self.status_text.setObjectName("StatusText")
         status_layout.addWidget(self.status_text)
         status_layout.addStretch()
 
@@ -522,6 +928,11 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
         self.setup_gallery_page()
         self.pages.addWidget(self.gallery_page)
 
+        # 3. Help & Guide Page
+        self.help_page = QtWidgets.QWidget()
+        self.setup_help_page()
+        self.pages.addWidget(self.help_page)
+
         main_layout.addWidget(self.pages)
 
     def show_extractor_view(self):
@@ -532,6 +943,18 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
         self.btn_gallery.setChecked(True)
         self.pages.setCurrentIndex(1)
         self.refresh_gallery_display()
+
+    def show_help_view(self):
+        self.btn_help.setChecked(True)
+        self.pages.setCurrentIndex(2)
+
+    def on_json_toggled(self, checked):
+        if checked:
+            self.chk_viz.setChecked(False)
+
+    def on_viz_toggled(self, checked):
+        if checked:
+            self.chk_json.setChecked(False)
 
     def setup_extractor_page(self):
         layout = QtWidgets.QVBoxLayout(self.extractor_page)
@@ -579,37 +1002,59 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
         self.btn_browse_out.clicked.connect(self.browse_output)
         settings_layout.addWidget(self.btn_browse_out, 3, 4)
 
-        # Row 4: Swtiches & Configurations
+        # Row 4: Switches & Configurations
         config_frame = QtWidgets.QFrame()
-        config_layout = QtWidgets.QHBoxLayout(config_frame)
+        config_layout = QtWidgets.QVBoxLayout(config_frame)
         config_layout.setContentsMargins(0, 5, 0, 5)
-        config_layout.setSpacing(20)
+        config_layout.setSpacing(10)
+
+        # Row 4a: Checkboxes
+        chk_layout = QtWidgets.QHBoxLayout()
+        chk_layout.setSpacing(15)
 
         self.chk_images = QtWidgets.QCheckBox("Save Figure PNGs")
         self.chk_images.setChecked(True)
-        config_layout.addWidget(self.chk_images)
+        chk_layout.addWidget(self.chk_images)
 
-        self.chk_json = QtWidgets.QCheckBox("Save JSON Metadata")
+        self.chk_json = QtWidgets.QCheckBox("Save JSON Metadata (-d)")
         self.chk_json.setChecked(True)
-        config_layout.addWidget(self.chk_json)
+        self.chk_json.setToolTip("Save figure metadata to JSON. Cannot be combined with Full Text JSON.")
+        self.chk_json.toggled.connect(self.on_json_toggled)
+        chk_layout.addWidget(self.chk_json)
 
-        self.chk_viz = QtWidgets.QCheckBox("Render Visualizations")
-        config_layout.addWidget(self.chk_viz)
+        self.chk_viz = QtWidgets.QCheckBox("Save Full Text & Figures (-g)")
+        self.chk_viz.setToolTip("Save full text structure and figures to JSON. Cannot be combined with JSON Metadata.")
+        self.chk_viz.toggled.connect(self.on_viz_toggled)
+        chk_layout.addWidget(self.chk_viz)
 
-        config_layout.addStretch()
+        self.chk_regionless = QtWidgets.QCheckBox("Save Regionless Captions (-c)")
+        self.chk_regionless.setToolTip("Include captions in metadata even if figure bounding box cannot be resolved")
+        chk_layout.addWidget(self.chk_regionless)
 
-        # Image DPI options
-        config_layout.addWidget(QtWidgets.QLabel("Image DPI:"))
+        self.chk_errors = QtWidgets.QCheckBox("Ignore Page Errors (-e)")
+        self.chk_errors.setToolTip("Skip pages with errors instead of failing entire process")
+        chk_layout.addWidget(self.chk_errors)
+
+        chk_layout.addStretch()
+        config_layout.addLayout(chk_layout)
+
+        # Row 4b: Settings Inputs (DPI, Prefix)
+        inputs_layout = QtWidgets.QHBoxLayout()
+        inputs_layout.setSpacing(15)
+
+        inputs_layout.addWidget(QtWidgets.QLabel("Image DPI:"))
         self.combo_dpi = QtWidgets.QComboBox()
         self.combo_dpi.addItems(["72", "100", "150", "200", "300"])
         self.combo_dpi.setCurrentText("150")
-        config_layout.addWidget(self.combo_dpi)
+        inputs_layout.addWidget(self.combo_dpi)
 
-        # Prefix options
-        config_layout.addWidget(QtWidgets.QLabel("Figure Prefix:"))
+        inputs_layout.addWidget(QtWidgets.QLabel("Figure Prefix:"))
         self.entry_prefix = QtWidgets.QLineEdit("fig")
         self.entry_prefix.setFixedWidth(80)
-        config_layout.addWidget(self.entry_prefix)
+        inputs_layout.addWidget(self.entry_prefix)
+
+        inputs_layout.addStretch()
+        config_layout.addLayout(inputs_layout)
 
         settings_layout.addWidget(config_frame, 4, 0, 1, 4)
 
@@ -675,6 +1120,111 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
 
         self.scroll_area.setWidget(self.gallery_container)
         layout.addWidget(self.scroll_area, stretch=1)
+
+        # Footer layout for status/statistics
+        footer_layout = QtWidgets.QHBoxLayout()
+        footer_layout.setContentsMargins(0, 0, 0, 0)
+        footer_layout.addStretch()
+
+        self.lbl_gallery_count = QtWidgets.QLabel("Total Figures: 0")
+        self.lbl_gallery_count.setObjectName("GalleryCount")
+        footer_layout.addWidget(self.lbl_gallery_count)
+
+        layout.addLayout(footer_layout)
+
+    def setup_help_page(self):
+        layout = QtWidgets.QVBoxLayout(self.help_page)
+        layout.setContentsMargins(30, 30, 30, 30)
+        layout.setSpacing(20)
+
+        # Header Frame for Title and Language Switcher
+        header_frame = QtWidgets.QFrame()
+        header_layout = QtWidgets.QHBoxLayout(header_frame)
+        header_layout.setContentsMargins(0, 0, 0, 0)
+
+        self.help_title_lbl = QtWidgets.QLabel("User Guide & Troubleshooting")
+        self.help_title_lbl.setObjectName("SectionTitle")
+        header_layout.addWidget(self.help_title_lbl)
+
+        header_layout.addStretch()
+
+        # Language Switch Button
+        self.btn_lang = QtWidgets.QPushButton("Türkçe'ye Geç")
+        self.btn_lang.setObjectName("SecondaryButton")
+        self.btn_lang.setCheckable(True)
+        self.btn_lang.clicked.connect(self.toggle_help_language)
+        header_layout.addWidget(self.btn_lang)
+
+        layout.addWidget(header_frame)
+
+        # Scrollable container for help content
+        scroll = QtWidgets.QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setStyleSheet("background-color: transparent;")
+        
+        help_container = QtWidgets.QWidget()
+        help_container.setStyleSheet("background-color: transparent;")
+        help_layout = QtWidgets.QVBoxLayout(help_container)
+        help_layout.setContentsMargins(0, 0, 0, 0)
+        help_layout.setSpacing(20)
+
+        # CARD 1: How to Use
+        card_usage = QtWidgets.QFrame()
+        card_usage.setObjectName("SettingsPanel")
+        card_usage_layout = QtWidgets.QVBoxLayout(card_usage)
+        card_usage_layout.setContentsMargins(20, 20, 20, 20)
+        card_usage_layout.setSpacing(10)
+
+        self.usage_title = QtWidgets.QLabel("📖 How to Use the Application")
+        self.usage_title.setObjectName("HelpTitle")
+        card_usage_layout.addWidget(self.usage_title)
+
+        self.usage_text = QtWidgets.QLabel(self.HELP_TEXT_EN["usage"])
+        self.usage_text.setObjectName("HelpText")
+        self.usage_text.setWordWrap(True)
+        card_usage_layout.addWidget(self.usage_text)
+
+        help_layout.addWidget(card_usage)
+
+        # CARD 2: Troubleshooting
+        card_trouble = QtWidgets.QFrame()
+        card_trouble.setObjectName("SettingsPanel")
+        card_trouble_layout = QtWidgets.QVBoxLayout(card_trouble)
+        card_trouble_layout.setContentsMargins(20, 20, 20, 20)
+        card_trouble_layout.setSpacing(10)
+
+        self.trouble_title = QtWidgets.QLabel("⚠️ Graphics Not Found & Troubleshooting")
+        self.trouble_title.setObjectName("HelpTitle")
+        card_trouble_layout.addWidget(self.trouble_title)
+
+        self.trouble_text = QtWidgets.QLabel(self.HELP_TEXT_EN["trouble"])
+        self.trouble_text.setObjectName("HelpText")
+        self.trouble_text.setWordWrap(True)
+        card_trouble_layout.addWidget(self.trouble_text)
+
+        help_layout.addWidget(card_trouble)
+
+        help_layout.addStretch()
+        scroll.setWidget(help_container)
+        layout.addWidget(scroll, stretch=1)
+
+    def toggle_help_language(self):
+        if self.btn_lang.isChecked():
+            # Switch to Turkish
+            self.btn_lang.setText("Switch to English")
+            self.help_title_lbl.setText("Kullanım Kılavuzu & Sorun Giderme")
+            self.usage_title.setText("📖 Uygulama Nasıl Kullanılır?")
+            self.usage_text.setText(self.HELP_TEXT_TR["usage"])
+            self.trouble_title.setText("⚠️ Grafiklerin Bulunamaması & Çözüm Yolları")
+            self.trouble_text.setText(self.HELP_TEXT_TR["trouble"])
+        else:
+            # Switch to English
+            self.btn_lang.setText("Türkçe'ye Geç")
+            self.help_title_lbl.setText("User Guide & Troubleshooting")
+            self.usage_title.setText("📖 How to Use the Application")
+            self.usage_text.setText(self.HELP_TEXT_EN["usage"])
+            self.trouble_title.setText("⚠️ Graphics Not Found & Troubleshooting")
+            self.trouble_text.setText(self.HELP_TEXT_EN["trouble"])
 
     # ----------------- BROWSE ACTIONS (GNOME NATIVE INTEGRATION) -----------------
     def browse_file(self):
@@ -768,6 +1318,10 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
         if self.chk_viz.isChecked():
             prefix = self.entry_prefix.text().strip() or "fig"
             cmd.extend(["-g", os.path.join(output_dir, "viz_" + prefix)])
+        if self.chk_regionless.isChecked():
+            cmd.append("-c")
+        if self.chk_errors.isChecked():
+            cmd.append("-e")
 
         cmd.extend(["-i", self.combo_dpi.currentText()])
 
@@ -843,7 +1397,18 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
     def load_figures_json(self, json_path):
         try:
             with open(json_path, 'r', encoding='utf-8') as f:
-                self.extracted_figures = json.load(f)
+                data = json.load(f)
+            
+            if isinstance(data, dict):
+                if "figures" in data:
+                    self.extracted_figures = data["figures"]
+                else:
+                    self.extracted_figures = []
+            elif isinstance(data, list):
+                self.extracted_figures = data
+            else:
+                self.extracted_figures = []
+                
             self.json_base_dir = os.path.dirname(json_path)
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "JSON Parse Error", f"Failed to load JSON file:\n{e}")
@@ -856,10 +1421,14 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
             if widget:
                 widget.deleteLater()
 
+        total_figures = len(self.extracted_figures)
+        self.lbl_gallery_count.setText(f"Total Figures Extracted: {total_figures}")
+
         if not self.extracted_figures:
+            self.lbl_gallery_count.setText("Total Figures Extracted: 0")
             empty_lbl = QtWidgets.QLabel("No figures loaded. Select 'Extractor Dashboard' to run extraction or load a JSON file.")
             empty_lbl.setAlignment(QtCore.Qt.AlignCenter)
-            empty_lbl.setStyleSheet("color: #8C8C8C; font-style: italic; font-size: 13px; margin: 50px;")
+            empty_lbl.setObjectName("EmptyLabel")
             self.gallery_grid.addWidget(empty_lbl, 0, 0)
             return
 
@@ -885,6 +1454,29 @@ class PDFFiguresGUI(QtWidgets.QMainWindow):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     
+    # Configure desktop integration for Linux/GNOME Dock
+    app.setApplicationName("PDFFigures2")
+    app.setApplicationDisplayName("PDFFigures 2.0")
+    app.setDesktopFileName("PDFFigures2")
+    
+    # Set App-wide Icon
+    icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon_v3.png")
+    if os.path.exists(icon_path):
+        app.setWindowIcon(QtGui.QIcon(icon_path))
+    
     window = PDFFiguresGUI()
     window.show()
+    
+    # Self-screenshot helper to capture high-quality app visual under Wayland/X11
+    if "--screenshot" in sys.argv:
+        def capture_self():
+            # Grab window pixmap and save
+            pixmap = window.grab()
+            output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshot.png")
+            pixmap.save(output_path, "PNG")
+            print(f"App screenshot saved successfully to {output_path}")
+            sys.exit(0)
+            
+        QtCore.QTimer.singleShot(2500, capture_self)
+        
     sys.exit(app.exec())
